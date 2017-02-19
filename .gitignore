@@ -1,0 +1,7 @@
+.idea
+*.iml
+transfer.sh
+*.bak
+.svn
+logs/
+target/
