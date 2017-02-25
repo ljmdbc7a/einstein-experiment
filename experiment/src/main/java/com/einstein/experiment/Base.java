@@ -3,9 +3,6 @@ package com.einstein.experiment;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by liujiaming on 2017/01/19 15:02.
- */
 public class Base {
 
     public static void main(String[] args) {

@@ -3,9 +3,6 @@ package com.einstein.experiment;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by liujiaming on 2017/02/17 10:11.
- */
 public class Temp {
     public static Map<String, MyObject> map = new HashMap<String, MyObject>();
 
@@ -28,7 +25,7 @@ public class Temp {
     }
 
     public static class MyObject {
-//        private byte[] bytes;
+        //        private byte[] bytes;
         MyObject() {
             byte[] bytes = new byte[1024 * 1024]; //1M
         }

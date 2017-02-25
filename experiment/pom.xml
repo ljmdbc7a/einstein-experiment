@@ -12,27 +12,38 @@
     <artifactId>experiment</artifactId>
 
     <dependencies>
+        <!-- self -->
         <dependency>
             <groupId>com.einstein.experiment</groupId>
             <artifactId>common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
+        <!-- cxf -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
         </dependency>
 
+        <!-- meidusa -->
         <dependency>
             <groupId>com.meidusa.venus.commons</groupId>
             <artifactId>venus-common-validator</artifactId>
             <version>2.3.0-M8</version>
         </dependency>
 
+        <!-- commons -->
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
+        </dependency>
+
+        <!--rocketMQ-->
+        <dependency>
+            <groupId>com.alibaba.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>3.2.6</version>
         </dependency>
     </dependencies>
 

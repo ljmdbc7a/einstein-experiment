@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by liujiaming on 2017/02/13 10:20.
+ * 内存泄露问题。
  * <p/>
  * 实例：包：Group:com.meidusa.venus.commons Name:venus-common-validator
  * 参数验证会动态生成验证类，并缓存到hashMap中，map的key是自定义类，但是未重写hashCode和equals方法，导致hashMap无限增长，导致perm内存泄露

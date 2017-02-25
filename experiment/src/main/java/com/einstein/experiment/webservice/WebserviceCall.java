@@ -1,5 +1,6 @@
 package com.einstein.experiment.webservice;
 
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
 
 /**
@@ -29,4 +30,14 @@ public class WebserviceCall {
 //            System.out.println(u.toJson());
 //        }
     }
+
+    public static void init() {
+        JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+        // 注册WebService接口
+//        factory.setServiceClass(IBankAccountFacade.class);
+        // 设置WebService地址
+        factory.setAddress("http://localhost:9090/BankAccountFacade?wsdl");
+//        bankAccountFacade = (IBankAccountFacade)factory.create();
+    }
+
 }
