@@ -29,21 +29,33 @@
         <dependency>
             <groupId>com.meidusa.venus.commons</groupId>
             <artifactId>venus-common-validator</artifactId>
-            <version>2.3.0-M8</version>
         </dependency>
 
         <!-- commons -->
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
         </dependency>
 
         <!--rocketMQ-->
         <dependency>
             <groupId>com.alibaba.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
-            <version>3.2.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm-commons</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
     </dependencies>
 
@@ -59,9 +71,9 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
                             <!-- 入口 -->
-                            <!--<mainClass>com.einstein.experiment.memoryleak.WhichSpaceUp</mainClass>-->
+                            <mainClass>com.einstein.experiment.memoryleak.WhichSpaceUp</mainClass>
                             <!--<mainClass>com.einstein.experiment.Temp</mainClass>-->
-                            <mainClass>com.einstein.experiment.memoryleak.VisitorFieldValidator</mainClass>
+                            <!--<mainClass>com.einstein.experiment.memoryleak.VisitorFieldValidator</mainClass>-->
                         </manifest>
                     </archive>
                 </configuration>

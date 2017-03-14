@@ -23,10 +23,10 @@ public class HttpUtils {
                 // 获取响应实体
                 HttpEntity entity = response.getEntity();
                 // 打印响应状态
-                System.out.println(response.getStatusLine());
+//                System.out.println(response.getStatusLine());
                 if (entity != null) {
                     // 打印响应内容长度
-                    System.out.println("Response content length: " + entity.getContentLength());
+//                    System.out.println("Response content length: " + entity.getContentLength());
                     return EntityUtils.toString(entity);
                 }
             } finally {

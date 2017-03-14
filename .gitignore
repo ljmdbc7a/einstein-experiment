@@ -5,3 +5,4 @@ transfer.sh
 .svn
 logs/
 target/
+.DS_Store

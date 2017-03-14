@@ -14,7 +14,8 @@ import java.util.Map;
  * 总结：自定义类作为Map的key，只重写了hashCode 没有重写equals方法，导致Map(static)无限增长，导致内存泄露
  */
 public class VisitorFieldValidator {
-    //    private static Map<ClassPolicy, Validator> internalValidatorChainMapping = new HashMap();
+
+    private static Map<ClassPolicy, Integer> internalValidatorChainMapping = new HashMap<ClassPolicy, Integer>();
 
     public static class ClassPolicy {
         private Class<?> clazz;
@@ -43,23 +44,24 @@ public class VisitorFieldValidator {
 
         @Override
         public int hashCode() {
-            return (new HashCodeBuilder(780293071, -917577685)).append(this.policy).append(this.clazz).toHashCode();
+            return (new HashCodeBuilder(780293071, -917577685)).append(this.policy)
+                                                               .append(this.clazz)
+                                                               .toHashCode();
         }
 
-//        @Override
-//        public boolean equals(Object obj) {
-//            return this.hashCode() == obj.hashCode();
-//        }
+        //        @Override
+        //        public boolean equals(Object obj) {
+        //            return this.hashCode() == obj.hashCode();
+        //        }
     }
 
     public static void main(String[] args) {
 
-        Map<Object, Object> map = new HashMap<Object, Object>();
-        Object object1 = new Object();
+        Object object = new Object();
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            ClassPolicy classPolicy = new ClassPolicy(object1.getClass(), "in");
-            map.put(classPolicy, "xx");
-            System.out.println(map.size());
+            ClassPolicy classPolicy = new ClassPolicy(object.getClass(), "in");
+            internalValidatorChainMapping.put(classPolicy, i);
+            System.out.println(internalValidatorChainMapping.size());
         }
     }
 }
