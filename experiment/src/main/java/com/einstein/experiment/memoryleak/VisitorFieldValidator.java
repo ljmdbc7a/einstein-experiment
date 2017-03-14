@@ -17,6 +17,16 @@ public class VisitorFieldValidator {
 
     private static Map<ClassPolicy, Integer> internalValidatorChainMapping = new HashMap<ClassPolicy, Integer>();
 
+    public static void main(String[] args) {
+
+        Object object = new Object();
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            ClassPolicy classPolicy = new ClassPolicy(object.getClass(), "in");
+            internalValidatorChainMapping.put(classPolicy, i);
+            System.out.println(internalValidatorChainMapping.size());
+        }
+    }
+
     public static class ClassPolicy {
         private Class<?> clazz;
         private String policy;
@@ -53,15 +63,5 @@ public class VisitorFieldValidator {
         //        public boolean equals(Object obj) {
         //            return this.hashCode() == obj.hashCode();
         //        }
-    }
-
-    public static void main(String[] args) {
-
-        Object object = new Object();
-        for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            ClassPolicy classPolicy = new ClassPolicy(object.getClass(), "in");
-            internalValidatorChainMapping.put(classPolicy, i);
-            System.out.println(internalValidatorChainMapping.size());
-        }
     }
 }

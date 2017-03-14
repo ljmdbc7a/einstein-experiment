@@ -1,6 +1,10 @@
 package com.einstein.experiment.concurrency;
 
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * 线程池中，如果任务依赖于其他任务，可能产生死锁。
@@ -13,6 +17,17 @@ import java.util.concurrent.*;
 public class ThreadDeadLockTest {
 
     private static final ExecutorService exec = Executors.newSingleThreadExecutor();
+
+    public static void main(String[] args) {
+        Future<String> renderPageFuture = exec.submit(new RenderPageTask());
+        try {
+            renderPageFuture.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static class RenderPageTask implements Callable<String> {
 
@@ -28,17 +43,6 @@ public class ThreadDeadLockTest {
         @Override
         public String call() throws Exception {
             return "Load file success.";
-        }
-    }
-
-    public static void main(String[] args) {
-        Future<String> renderPageFuture = exec.submit(new RenderPageTask());
-        try {
-            renderPageFuture.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
         }
     }
 }

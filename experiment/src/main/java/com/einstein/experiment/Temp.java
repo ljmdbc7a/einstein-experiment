@@ -9,8 +9,8 @@ public class Temp {
     public static void main(String[] args) {
         //=====================Begin=========================
         System.out.print("Xmx=");
-        System.out.println(Runtime.getRuntime().maxMemory() / 1024.0 / 1024 + "M");
-
+        System.out.println(Runtime.getRuntime()
+                                  .maxMemory() / 1024.0 / 1024 + "M");
 
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
             map.put(String.valueOf(i), new MyObject());

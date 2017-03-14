@@ -28,9 +28,9 @@ public class Consumer {
         // 设置队列topic
         consumer.subscribe("AccountChange", "*");
 
-//        File file = new File("/Users/liujiaming/Documents/code-open/einstein-experiment/experiment/src/main/java/com/einstein/experiment/rocketMQ/MessageFilterImpl.java");
-//        String filterCode = MixAll.file2String(file);
-//        consumer.subscribe("AccountChange", "com.einstein.experiment.rocketMQ.MessageFilterImpl.java", filterCode);
+        //        File file = new File("/Users/liujiaming/Documents/code-open/einstein-experiment/experiment/src/main/java/com/einstein/experiment/rocketMQ/MessageFilterImpl.java");
+        //        String filterCode = MixAll.file2String(file);
+        //        consumer.subscribe("AccountChange", "com.einstein.experiment.rocketMQ.MessageFilterImpl.java", filterCode);
 
         consumer.registerMessageListener(new MessageListenerConcurrently() {
             public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
@@ -38,7 +38,8 @@ public class Consumer {
                     System.out.println("Received msg's tags: " + msg.getTags());
                 }
                 System.out.println("Received msgs: " + msgs);
-                System.out.println("Received msg's body: " + new String(msgs.get(0).getBody()));
+                System.out.println("Received msg's body: " + new String(msgs.get(0)
+                                                                            .getBody()));
                 return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
             }
         });

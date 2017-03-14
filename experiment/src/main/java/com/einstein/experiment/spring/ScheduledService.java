@@ -1,6 +1,5 @@
 package com.einstein.experiment.spring;
 
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.Date;
@@ -17,10 +16,11 @@ public class ScheduledService {
 
     private static int count;
 
-//    @Async
+    //    @Async
     @Scheduled(cron = "*/2 * * * * *")
     public void ScheduledTask1() {
-        System.out.println("Task start " + count++ + " @" + new Date() + Thread.currentThread().getName());
+        System.out.println("Task start " + count++ + " @" + new Date() + Thread.currentThread()
+                                                                               .getName());
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -28,10 +28,11 @@ public class ScheduledService {
         }
     }
 
-//    @Async
+    //    @Async
     @Scheduled(cron = "*/2 * * * * *")
     public void ScheduledTask2() {
-        System.out.println("Task start " + count++ + " @" + new Date() + Thread.currentThread().getName());
+        System.out.println("Task start " + count++ + " @" + new Date() + Thread.currentThread()
+                                                                               .getName());
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {

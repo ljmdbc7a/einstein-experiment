@@ -10,7 +10,8 @@ import com.alibaba.rocketmq.common.message.MessageExt;
 public class MessageFilterImpl implements MessageFilter {
 
     public boolean match(MessageExt msg) {
-        if (msg.getTags() != null && msg.getTags().equals("tagsA")) {
+        if (msg.getTags() != null && msg.getTags()
+                                        .equals("tagsA")) {
             return true;
         }
         return false;

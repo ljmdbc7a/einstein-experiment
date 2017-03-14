@@ -22,8 +22,8 @@ public class Producer {
 
         for (int i = 0; i < 10; i++) {
             Message message = new Message("AccountChange", // topic
-                    "tagsB",  // tags
-                    ("Hello RocketMQ " + i).getBytes() // body
+                                          "tagsB",  // tags
+                                          ("Hello RocketMQ " + i).getBytes() // body
             );
             try {
                 SendResult sendResult = producer.send(message);

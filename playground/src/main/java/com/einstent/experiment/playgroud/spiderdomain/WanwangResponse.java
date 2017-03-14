@@ -14,6 +14,30 @@ public class WanwangResponse {
 
     private List<DomainStatus> module;
 
+    public int getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public List<DomainStatus> getModule() {
+        return module;
+    }
+
+    public void setModule(List<DomainStatus> module) {
+        this.module = module;
+    }
+
     static class DomainStatus {
         private int avail;
 
@@ -47,44 +71,12 @@ public class WanwangResponse {
 
         @Override
         public String toString() {
-            return "DomainStatus{" +
-                    "avail=" + avail +
-                    ", name='" + name + '\'' +
-                    ", tld='" + tld + '\'' +
-                    '}';
+            return "DomainStatus{" + "avail=" + avail + ", name='" + name + '\'' + ", tld='" + tld + '\'' + '}';
         }
-    }
-
-    public int getErrorCode() {
-        return errorCode;
-    }
-
-    public void setErrorCode(int errorCode) {
-        this.errorCode = errorCode;
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public List<DomainStatus> getModule() {
-        return module;
-    }
-
-    public void setModule(List<DomainStatus> module) {
-        this.module = module;
     }
 
     @Override
     public String toString() {
-        return "Response{" +
-                "errorCode=" + errorCode +
-                ", success=" + success +
-                ", module=" + module +
-                '}';
+        return "Response{" + "errorCode=" + errorCode + ", success=" + success + ", module=" + module + '}';
     }
 }

@@ -20,24 +20,24 @@ public class WebserviceCall {
             e.printStackTrace();
         }
 
-//        JaxWsProxyFactoryBean jwpfb = new JaxWsProxyFactoryBean();
-//        jwpfb.setServiceClass(UserService.class);
-//        jwpfb.setAddress("http://localhost:8080/userService");
-//        UserService us = (UserService) jwpfb.create();
-//        System.out.println(us.getUser("a001"));
-//        List<Users> users = us.geAlltUsers();
-//        for (Users u : users) {
-//            System.out.println(u.toJson());
-//        }
+        //        JaxWsProxyFactoryBean jwpfb = new JaxWsProxyFactoryBean();
+        //        jwpfb.setServiceClass(UserService.class);
+        //        jwpfb.setAddress("http://localhost:8080/userService");
+        //        UserService us = (UserService) jwpfb.create();
+        //        System.out.println(us.getUser("a001"));
+        //        List<Users> users = us.geAlltUsers();
+        //        for (Users u : users) {
+        //            System.out.println(u.toJson());
+        //        }
     }
 
     public static void init() {
         JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
         // 注册WebService接口
-//        factory.setServiceClass(IBankAccountFacade.class);
+        //        factory.setServiceClass(IBankAccountFacade.class);
         // 设置WebService地址
         factory.setAddress("http://localhost:9090/BankAccountFacade?wsdl");
-//        bankAccountFacade = (IBankAccountFacade)factory.create();
+        //        bankAccountFacade = (IBankAccountFacade)factory.create();
     }
 
 }
