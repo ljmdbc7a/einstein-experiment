@@ -26,8 +26,8 @@ import java.util.Map;
  */
 public class PhantomRefTest {
 
-    private static final Map<RefObjectPhantomReference, RefObjectPhantomReference> refMap = Maps.newHashMap();
-    private static final ReferenceQueue<RefObject> refQ = new ReferenceQueue<RefObject>();
+    public static final Map<RefObjectPhantomReference, RefObjectPhantomReference> refMap = Maps.newHashMap();
+    public static final ReferenceQueue<RefObject> refQ = new ReferenceQueue<RefObject>();
 
     public static class RefObjectPhantomReference extends PhantomReference<RefObject> {
         public RefObjectPhantomReference(RefObject referent, ReferenceQueue<? super RefObject> q) {
@@ -36,6 +36,11 @@ public class PhantomRefTest {
     }
 
     public static void main(String[] args) {
+
+        /**
+         * 启动清理线程
+         */
+        new RefCleanupThread().start();
 
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
             RefObject refObject = new RefObject();
