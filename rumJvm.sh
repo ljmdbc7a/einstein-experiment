@@ -7,8 +7,8 @@ JAVA_OPTS="-server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt
 	-XX:CMSInitiatingOccupancyFraction=80 -XX:SoftRefLRUPolicyMSPerMB=0 -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseCMSInitiatingOccupancyOnly\
 	-XX:+PrintHeapAtGC -Xloggc:./logs/gc.log -XX:+PrintGCApplicationConcurrentTime -XX:+PrintGCApplicationStoppedTime -Duser.timezone=Asia/Shanghai"
 
-java_bin="/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/"
+#java_bin="/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/"
 #java_bin="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/bin/"
-#java_bin="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/bin/"
+java_bin="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/bin/"
 
 $java_bin/java $JAVA_OPTS -jar /Users/liujiaming/Documents/code-open/einstein-experiment/experiment/target/experiment-1.0.0-SNAPSHOT.jar

@@ -57,6 +57,18 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP-java6</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jdbc</artifactId>
+            <version>8.5.5</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -71,10 +83,12 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
                             <!-- 入口 -->
-                            <mainClass>com.einstein.experiment.reference.PhantomRefTest</mainClass>
+                            <!--<mainClass>com.einstein.experiment.memoryleak.jdbc.DataSourceTest</mainClass>-->
+                            <mainClass>com.einstein.experiment.memoryleak.jdbc.NonRegisteringDriverTest</mainClass>
+                            <!--<mainClass>com.einstein.experiment.reference.PhantomRefTest</mainClass>-->
                             <!--<mainClass>com.einstein.experiment.memoryleak.WhichSpaceUp</mainClass>-->
                             <!--<mainClass>com.einstein.experiment.Temp</mainClass>-->
-                            <!--<mainClass>com.einstein.experiment.memoryleak.VisitorFieldValidator</mainClass>-->
+                            <!--<mainClass>com.einstein.experiment.memoryleak.VisitorFieldValidatorTest</mainClass>-->
                         </manifest>
                     </archive>
                 </configuration>
@@ -94,6 +108,14 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
             </plugin>
 
         </plugins>

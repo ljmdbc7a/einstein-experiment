@@ -1,5 +1,6 @@
 package com.einstein.experiment.memoryleak;
 
+import com.meidusa.venus.validate.validator.VisitorFieldValidator;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import java.util.HashMap;
@@ -13,19 +14,11 @@ import java.util.Map;
  * <p/>
  * 总结：自定义类作为Map的key，只重写了hashCode 没有重写equals方法，导致Map(static)无限增长，导致内存泄露
  */
-public class VisitorFieldValidator {
+public class VisitorFieldValidatorTest {
 
     private static Map<ClassPolicy, Integer> internalValidatorChainMapping = new HashMap<ClassPolicy, Integer>();
 
-    public static void main(String[] args) {
-
-        Object object = new Object();
-        for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            ClassPolicy classPolicy = new ClassPolicy(object.getClass(), "in");
-            internalValidatorChainMapping.put(classPolicy, i);
-            System.out.println(internalValidatorChainMapping.size());
-        }
-    }
+    VisitorFieldValidator validator = new VisitorFieldValidator();
 
     public static class ClassPolicy {
         private Class<?> clazz;
@@ -58,10 +51,19 @@ public class VisitorFieldValidator {
                                                                .append(this.clazz)
                                                                .toHashCode();
         }
-
         //        @Override
         //        public boolean equals(Object obj) {
         //            return this.hashCode() == obj.hashCode();
         //        }
+    }
+
+    public static void main(String[] args) {
+
+        Object object = new Object();
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            ClassPolicy classPolicy = new ClassPolicy(object.getClass(), "in");
+            internalValidatorChainMapping.put(classPolicy, i);
+            System.out.println(internalValidatorChainMapping.size());
+        }
     }
 }
