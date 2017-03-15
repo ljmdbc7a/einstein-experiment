@@ -71,7 +71,8 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
                             <!-- 入口 -->
-                            <mainClass>com.einstein.experiment.memoryleak.WhichSpaceUp</mainClass>
+                            <mainClass>com.einstein.experiment.reference.PhantomRefTest</mainClass>
+                            <!--<mainClass>com.einstein.experiment.memoryleak.WhichSpaceUp</mainClass>-->
                             <!--<mainClass>com.einstein.experiment.Temp</mainClass>-->
                             <!--<mainClass>com.einstein.experiment.memoryleak.VisitorFieldValidator</mainClass>-->
                         </manifest>

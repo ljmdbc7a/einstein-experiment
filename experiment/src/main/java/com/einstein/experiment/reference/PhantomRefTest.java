@@ -1,5 +1,12 @@
 package com.einstein.experiment.reference;
 
+import com.google.common.collect.Maps;
+
+import java.lang.ref.PhantomReference;
+import java.lang.ref.ReferenceQueue;
+import java.lang.reflect.Field;
+import java.util.Map;
+
 /**
  *
  * @author liujiaming
@@ -17,4 +24,45 @@ package com.einstein.experiment.reference;
  * Phantom references are useful for implementing cleanup operations that are necessary before an object gets garbage-collected.
  * They are sometimes more flexible than the finalize() method.
  */
-public class PhantomRefTest {}
+public class PhantomRefTest {
+
+    private static final Map<RefObjectPhantomReference, RefObjectPhantomReference> refMap = Maps.newHashMap();
+    private static final ReferenceQueue<RefObject> refQ = new ReferenceQueue<RefObject>();
+
+    public static class RefObjectPhantomReference extends PhantomReference<RefObject> {
+        public RefObjectPhantomReference(RefObject referent, ReferenceQueue<? super RefObject> q) {
+            super(referent, q);
+        }
+    }
+
+    public static void main(String[] args) {
+
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            RefObject refObject = new RefObject();
+            RefObjectPhantomReference refObjectPhantomReference = new RefObjectPhantomReference(refObject, refQ);
+            refMap.put(refObjectPhantomReference, refObjectPhantomReference);
+
+            System.out.println(refMap.size());
+            // 反射获取队列长度
+            Field privateField = null;
+            try {
+                privateField = ReferenceQueue.class.getDeclaredField("queueLength");
+                privateField.setAccessible(true);
+                Long fieldValue = (Long) privateField.get(refQ);
+                System.out.println(refQ + " queueLength = " + fieldValue);
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+}
