@@ -40,7 +40,7 @@ public class PhantomRefTest {
         /**
          * 启动清理线程
          */
-        // new RefCleanupThread().start();
+         new RefCleanupThread().start();
 
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
             RefObject refObject = new RefObject();

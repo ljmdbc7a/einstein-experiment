@@ -83,6 +83,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
                             <!-- 入口 -->
+                            <!--<mainClass>com.einstein.experiment.finalize.FinalizeMethodTest</mainClass>-->
                             <!--<mainClass>com.einstein.experiment.memoryleak.jdbc.DataSourceTest</mainClass>-->
                             <mainClass>com.einstein.experiment.memoryleak.jdbc.NonRegisteringDriverTest</mainClass>
                             <!--<mainClass>com.einstein.experiment.reference.PhantomRefTest</mainClass>-->

@@ -29,19 +29,21 @@ public class NonRegisteringDriverTest {
         @Override
         public void run() {
 
+            try {
+                Class.forName(driver);
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
             for (int i = 0; i < 1000000; i++) {
                 try {
-                    Class.forName(driver);
                     java.sql.Connection conn = DriverManager.getConnection(url, userName, password);
-                    System.out.println(conn + Thread.currentThread()
-                                                    .getName());
+                    //                    System.out.println(conn + Thread.currentThread()
+                    //                                                    .getName());
 
                     // 关闭链接对象
                     if (conn != null) {
                         //                        conn.close();
                     }
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
