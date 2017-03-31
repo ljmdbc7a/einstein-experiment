@@ -10,13 +10,13 @@
     <task:scheduler id="poolTaskScheduler" pool-size="10"></task:scheduler>
     <task:annotation-driven scheduler="poolTaskScheduler"></task:annotation-driven>
 
-    <!--<task:annotation-driven executor="threadPoolExecutor"></task:annotation-driven>-->
-    <!--<bean id="threadPoolExecutor"-->
-    <!--class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">-->
-    <!--<property name="corePoolSize" value="3"/>-->
-    <!--<property name="maxPoolSize" value="10"/>-->
-    <!--<property name="threadNamePrefix" value="threadPool-"/>-->
-    <!--<property name="queueCapacity" value="1000"/>-->
-    <!--<property name="keepAliveSeconds" value="600"/>-->
-    <!--</bean>-->
+    <task:annotation-driven executor="threadPoolExecutor"></task:annotation-driven>
+    <bean id="threadPoolExecutor"
+    class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+    <property name="corePoolSize" value="3"/>
+    <property name="maxPoolSize" value="10"/>
+    <property name="threadNamePrefix" value="threadPool-"/>
+    <property name="queueCapacity" value="1000"/>
+    <property name="keepAliveSeconds" value="600"/>
+    </bean>
 </beans>

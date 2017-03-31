@@ -85,10 +85,11 @@
                             <!-- 入口 -->
                             <!--<mainClass>com.einstein.experiment.finalize.FinalizeMethodTest</mainClass>-->
                             <!--<mainClass>com.einstein.experiment.memoryleak.jdbc.DataSourceTest</mainClass>-->
-                            <mainClass>com.einstein.experiment.memoryleak.jdbc.NonRegisteringDriverTest</mainClass>
+                            <!--<mainClass>com.einstein.experiment.memoryleak.jdbc.NonRegisteringDriverTest</mainClass>-->
                             <!--<mainClass>com.einstein.experiment.reference.PhantomRefTest</mainClass>-->
                             <!--<mainClass>com.einstein.experiment.memoryleak.WhichSpaceUp</mainClass>-->
                             <!--<mainClass>com.einstein.experiment.Temp</mainClass>-->
+                            <mainClass>com.einstein.experiment.Base</mainClass>
                             <!--<mainClass>com.einstein.experiment.memoryleak.VisitorFieldValidatorTest</mainClass>-->
                         </manifest>
                     </archive>
@@ -110,12 +111,31 @@
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <!--运行 mvn findbugs:findbugs 将开始执行检查，并生成bugs报告(默认在target\site\findbugs目录)。 findbugs:findbugs绑定到compile pahse即在编译时自动检查。-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+
+            <!--可用来将工程依赖的jar包和工程都打成一个jar打包-->
+            <!--直接运行mvn assembly:assembly会在target下出现***-with-dependencies.jar的jar包-->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
                 </configuration>
             </plugin>
 

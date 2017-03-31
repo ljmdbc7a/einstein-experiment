@@ -8,21 +8,23 @@ public class SequenceWorker implements Runnable {
 
     private Sequence sequence;
 
+    private Sequence sequence1;
+
     public SequenceWorker(Sequence unsafeSequence) {
         this.sequence = unsafeSequence;
     }
 
     @Override
     public void run() {
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 1000; i++) {
             System.out.println(Thread.currentThread()
                                      .getName() + " get: " + sequence.getNextSafe());
 
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                Thread.sleep(10);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 }
