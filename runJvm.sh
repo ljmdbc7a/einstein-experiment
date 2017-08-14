@@ -11,6 +11,6 @@ JAVA_OPTS="-server -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt
 
 #JAVA_BIN="/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/"
 #JAVA_BIN="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/bin/"
-JAVA_BIN="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/bin/"
+JAVA_BIN="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/bin/"
 
-$JAVA_BIN/java $JAVA_OPTS -jar /Users/liujiaming/Documents/code-open/einstein-experiment/experiment/target/experiment-1.0.0-SNAPSHOT.jar $param
+$JAVA_BIN/java $JAVA_OPTS -jar /Users/lijiamin/Documents/opensource/einstein-experiment/experiment/target/experiment-1.0.0-SNAPSHOT.jar $param

@@ -25,10 +25,10 @@
             <artifactId>cxf-rt-frontend-jaxws</artifactId>
         </dependency>
 
-        <!-- meidusa -->
+         <!--meidusa -->
         <dependency>
-            <groupId>com.meidusa.venus.commons</groupId>
-            <artifactId>venus-common-validator</artifactId>
+        <groupId>com.meidusa.venus.commons</groupId>
+        <artifactId>venus-common-validator</artifactId>
         </dependency>
 
         <!-- commons -->
@@ -68,6 +68,12 @@
             <version>8.5.5</version>
         </dependency>
 
+        <!--spring-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
 
     </dependencies>
 
@@ -89,8 +95,8 @@
                             <!--<mainClass>com.einstein.experiment.reference.PhantomRefTest</mainClass>-->
                             <!--<mainClass>com.einstein.experiment.memoryleak.WhichSpaceUp</mainClass>-->
                             <!--<mainClass>com.einstein.experiment.Temp</mainClass>-->
-                            <mainClass>com.einstein.experiment.Base</mainClass>
-                            <!--<mainClass>com.einstein.experiment.memoryleak.VisitorFieldValidatorTest</mainClass>-->
+                            <!--<mainClass>com.einstein.experiment.Base</mainClass>-->
+                            <mainClass>com.einstein.experiment.memoryleak.VisitorFieldValidatorTest</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
