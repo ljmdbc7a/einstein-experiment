@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class VisitorFieldValidatorTest {
 
-    private static Map<ClassPolicy, Integer> internalValidatorChainMapping = new HashMap<ClassPolicy, Integer>();
+    private static Map<ClassPolicy, Object> internalValidatorChainMapping = new HashMap<ClassPolicy, Object>();
 
     VisitorFieldValidator validator = new VisitorFieldValidator();
 
@@ -36,10 +36,11 @@ public class VisitorFieldValidatorTest {
                     .append(this.clazz)
                     .toHashCode();
         }
-        //        @Override
-        //        public boolean equals(Object obj) {
-        //            return this.hashCode() == obj.hashCode();
-        //        }
+
+//        @Override
+//        public boolean equals(Object obj) {
+//            return this.hashCode() == obj.hashCode();
+//        }
     }
 
     public static void main(String[] args) {
@@ -47,7 +48,7 @@ public class VisitorFieldValidatorTest {
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
             ClassPolicy classPolicy = new ClassPolicy(object.getClass(), "in");
             if (internalValidatorChainMapping.get(classPolicy) != null) {
-                System.out.println();
+                System.out.println("Hit cache!");
             } else {
                 internalValidatorChainMapping.put(classPolicy, i);
                 System.out.println(internalValidatorChainMapping.size());
