@@ -14,6 +14,7 @@
         <module>playground</module>
         <module>spring</module>
         <module>bestpractice</module>
+        <module>guice</module>
     </modules>
 
     <properties>
@@ -95,11 +96,11 @@
                 <version>${jackson.version}</version>
             </dependency>
 
-            <!--guava-->
+            <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>19.0</version>
+                <version>25.1-jre</version>
             </dependency>
 
             <!--mysql connector-->
